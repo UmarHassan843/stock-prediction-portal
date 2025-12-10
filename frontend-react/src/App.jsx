@@ -4,7 +4,9 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 import Register from './components/Register'
+import Login from './components/Login'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
+import AuthProvider from './AuthProvider'
 
 
 
@@ -14,15 +16,18 @@ function App() {
 
   return (
     <>
+    <AuthProvider>
     <BrowserRouter>
     <Header />
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<div>Login</div>} />
+          <Route path='/login' element={<Login />} />
         </Routes>
     <Footer />
     </BrowserRouter>
+    </AuthProvider>
+
     </>
   )
 }
